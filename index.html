@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Server Monitor</title>
+  <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <a class="navbar-brand" href="#">Server Uptime Monitor</a>
+    </div>
+  </nav>
+<div class="container content">
+  <div class="row-fluid">
+    <div class="col-md-1" id="status"><div class=""><p class="text-center"><strong>Status</strong></p></div></div>
+    <div class="col-md-2" id="name"><div class=""><p class="text-center"><strong>Hostname</strong></p></div></div>
+    <!--<div class="col-md-1" id="node"><div class=""><p class="text-center"><strong>Node</strong></p></div></div>-->
+    <div class="col-md-1" id="type"><div class=""><p class="text-center"><strong>Type</strong></p></div></div>
+    <div class="col-md-1" id="host"><div class=""><p class="text-center"><strong>Provider</strong></p></div></div>
+    <div class="col-md-2" id="location"><div class=""><p class="text-center"><strong>Location</strong></p></div></div>
+    <div class="col-md-1" id="uptime"><div class=""><p class="text-center"><strong>Uptime</strong></p></div></div>
+    <div class="col-md-1" id="load"><div class=""><p class="text-center"><strong>Load</strong></p></div></div>
+    <div class="col-md-1" id="ram"><div class=""><p class="text-center"><strong>RAM</strong></p></div></div>
+    <div class="col-md-1" id="hdd"><div class=""><p class="text-center"><strong>HDD</strong></p></div></div>
+  </div>
+</div>
+<script src="./monitor.js"></script>
+</body>
+</html>
+

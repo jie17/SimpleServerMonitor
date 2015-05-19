@@ -1,0 +1,23 @@
+ body {
+      padding-top: 70px;
+    }
+    .anode {
+      height: 40px;
+    }
+    .progress {
+      position: relative;
+    }
+    .progress-bar {
+      z-index: 1;
+      position: absolute;
+    }
+    .progress span {
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      color: black;
+      text-align: center;
+      width: 100%;
+    }
+    .content { background: #ffffff; padding: 20px; border-radius: 5px; border: 1px #cecece solid; -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, .1); -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, .1); box-shadow: 0 1px 10px rgba(0, 0, 0, .1); margin-bottom: 20px; }
+
