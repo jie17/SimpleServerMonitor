@@ -10,12 +10,30 @@ $.getJSON("./config.json", function(servers){
       $("#load").append("<div class='anode node"+key+"'><div><p class='text-center'>0.00</p></div></div>");
       $("#ram").append("<div class='anode node"+key+"'><div class='progress progress-striped active'><div   class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'  style='width: 0%;'></div><span>0%</span></div></div>");
       $("#hdd").append("<div class='anode node"+key+"'><div class='progress progress-striped active'><div   class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100'  style='width: 0%;'></div><span>0%</span></div></div>");
-      $.getJSON("http://"+value.ip+"/agent.php?callback=?", function(data){
-        $('.node'+key).find('.progress-bar-danger').removeClass('progress-bar-danger').parent().find('span')  .html("Up");
+      if (window.location.protocol != "https:") {
+        var protocol = "http://";
+      }
+      else {
+        var protocol = "https://";
+      }
+      // $.getJSON("http://"+value.ip+"/agent.php?callback=?", function(data){
+      //   $('.node'+key).find('.progress-bar-danger').removeClass('progress-bar-danger').parent().find('span')  .html("Up");
+      //   $('#uptime').find('.node'+key).find('p').html(data.uptime);
+      //   $('#load').find('.node'+key).find('p').html(data.load);
+      //   $('#ram').find('.node'+key).find('.progress-bar').css("width", Math.round(data.ram) + "%").parent().  find('span').html(Math.round(data.ram) + "%");
+      //   $('#hdd').find('.node'+key).find('.progress-bar').css("width", Math.round(data.hdd) + "%").parent().find('span').html(Math.round(data.hdd) + "%");
+      // });
+      var xmlhttp = new XMLHttpRequest();
+      url = protocol+value.ip+"/agent.php";
+      xmlhttp.open("GET", url, true);
+      xmlhttp.onload = function(){
+        var data = JSON.parse(xmlhttp.responseText);
+         $('.node'+key).find('.progress-bar-danger').removeClass('progress-bar-danger').parent().find('span')  .html("Up");
         $('#uptime').find('.node'+key).find('p').html(data.uptime);
         $('#load').find('.node'+key).find('p').html(data.load);
         $('#ram').find('.node'+key).find('.progress-bar').css("width", Math.round(data.ram) + "%").parent().  find('span').html(Math.round(data.ram) + "%");
         $('#hdd').find('.node'+key).find('.progress-bar').css("width", Math.round(data.hdd) + "%").parent().find('span').html(Math.round(data.hdd) + "%");
-      });
+      };
+      xmlhttp.send();
     });
   });
